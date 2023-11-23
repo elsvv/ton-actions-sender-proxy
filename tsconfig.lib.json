@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "ESNext",
+    "lib": ["dom", "esnext"],
+    "preserveSymlinks": true,
+    "importHelpers": true,
+    "declaration": true,
+    "sourceMap": true,
+    "strict": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "noEmitOnError": false,
+    "resolveJsonModule": true
+  },
+  "include": ["wrappers"],
+  "exclude": ["**/*.compile.ts", "tests/*.ts"]
+}
