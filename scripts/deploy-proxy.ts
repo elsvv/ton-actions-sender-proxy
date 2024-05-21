@@ -7,9 +7,10 @@ export async function run(provider: NetworkProvider) {
     ProxySender.createFromConfig({ ownerAddress: provider.sender().address! }, await compile('ProxySender'))
   );
 
-  await proxy.sendDeploy(provider.sender(), toNano('0.05'));
+  await proxy.sendDeploy(provider.sender(), toNano('0.02'));
+
+  console.log('Mass sender address:');
+  console.log(proxy.address);
 
   await provider.waitForDeploy(proxy.address);
-
-  // run methods on `proxy`
 }

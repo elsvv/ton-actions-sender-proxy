@@ -92,6 +92,13 @@ export class ProxySender implements Contract {
     return new ProxySender(address);
   }
 
+  static createFromOwnerAddress(ownerAddress: Address, workchain = 0) {
+    const data = proxyConfigToCell({ ownerAddress });
+    const code = Cell.fromBoc(Buffer.from(ProxySender.CODE_BOC_HEX, 'hex'))[0];
+    const init = { code, data };
+    return new ProxySender(contractAddress(workchain, init), init);
+  }
+
   static createFromConfig(config: ProxyConfig, code: Cell, workchain = 0) {
     const data = proxyConfigToCell(config);
     const init = { code, data };

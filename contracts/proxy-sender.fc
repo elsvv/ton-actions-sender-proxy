@@ -33,7 +33,7 @@ const min_tons_for_storage = 500000000; ;; 0.005 TON
   slice ds = get_data().begin_parse();
   slice owner_addr = ds~load_msg_addr();
 
-  throw_unless(403, equal_slices(sender_addr, owner_addr));
+  throw_unless(403, equal_slices(sender_addr, owner_addr) | equal_slices(sender_addr, my_address()));
 
   cell actions = in_msg_body.preload_ref();
   return set_actions(actions);
